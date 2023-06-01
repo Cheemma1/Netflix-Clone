@@ -5,7 +5,7 @@ This is a Netflix clone website built using HTML, CSS, JavaScript, and an API. I
 ![](/images/screencapture-127-0-0-1-5500-index-html-2023-06-01-10_25_29.jpg)
 
 ## Demo
-Check out the live demo of the [Netflix Clone](https://netflix-clone-git-main-cheemma1.vercel.app/).
+Check out the live demo of the [Netflix Clone](https://cheemma1.github.io/Netflix-Clone/).
 
 ## Features
 Browse movies and TV shows: Explore a vast library of content.
