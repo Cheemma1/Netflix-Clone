@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetFLIX CLONE</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <main>
+      <header class="header" id="header">
+        
+<nav id="nav">
+          <div class="first-nav">
+            <img
+              src="images/Netflix_Logo_PMS.png"
+              alt="Netflix_Logo"
+              class="logo"
+            />
+            <div class="nav-links">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Tv shows</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">New & Popular</a></li>
+                <li><a href="#">My List</a></li>
+                <li><a href="#">Browse by languages</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="second-nav">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-bell"></i>
+            <img src="/images/avatar2.png" alt="" class="logo2" />
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+        </nav>
+        <div class="hero">
+          <h1 id="name"></h1>
+          <p id="overview">
+         </p>
+
+          <button class="btn-white">
+            <i class="fa-solid fa-play"></i>Play
+          </button>
+          <button class="btn-ash">
+            <i class="fa-solid fa-circle-info"></i>More Info
+          </button>
+        </div>
+      </header>
+
+      <section>
+        <div class="movi-cont">
+          <h2>Netflix original</h2>
+          <div class="original"></div>
+        </div>
+
+        <div class= "movi-cont">
+          <h2>Trending Movies</h2>
+          <div id="trending" ></div>
+        </div>
+
+        <div class="movi-cont">
+          <h2>Top-Rated</h2>
+          <div id="top-rated" class="flow"></div>
+        </div>
+
+        <div class="movi-cont">
+          <h2>comedy</h2>
+          <div id="comedy" class="flow"></div>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
