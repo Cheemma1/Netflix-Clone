@@ -2,6 +2,9 @@
 
 This is a Netflix clone website built using HTML, CSS, JavaScript, and an API. It aims to replicate the popular streaming platform's user interface and functionality. The website provides users with the ability to browse and watch a wide range of movies and TV shows.
 
+![](https://file:///C:/Users/SILVA/Desktop/Netflix-Clone/images/screencapture-127-0-0-1-5500-index-html-2023-06-01-10_25_29.jpg)
+
+
 
 
 ## Demo
