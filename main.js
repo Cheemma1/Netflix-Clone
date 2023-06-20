@@ -17,17 +17,14 @@ async function headerImage() {
       "https://api.themoviedb.org/3/discover/tv?api_key=19f84e11932abbc79e6d83f82d6d1045&with_networks=213"
     );
     const data = await response.json();
-    //  console.log(data.results)
 
     const res =
       data.results[Math.floor(Math.random() * data.results.length - 1)];
     const images = `https://image.tmdb.org/t/p/original${res?.backdrop_path} `;
-    // console.log(images)
 
     headerBg.style.backgroundImage = `url(${images})`;
     names.textContent = res.name;
     text.textContent = res.overview;
-    // console.log(res.name)
   } catch (error) {
     displayError(error);
   }
