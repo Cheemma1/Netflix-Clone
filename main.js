@@ -2,6 +2,9 @@
 const BG_SCROLL_CLASS = "bg-scroll";
 const IMDB_API_KEY = "19f84e11932abbc79e6d83f82d6d1045";
 
+// Define error messages
+const FETCH_MOVIE_ERROR_MESSAGE = "Something went wrong";
+
 // navbar scroll background
 const navBar = document.getElementById("nav");
 // hero section background image and text fectch
@@ -60,32 +63,26 @@ function displayError(imageerror) {
   console.log(imageerror.message);
 }
 
-function fetchMovies(url, dom_element, path_type) {
-  fetch(url)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("something went wrong");
-      }
-    })
-    .then((data) => {
-      showMovies(data, dom_element, path_type);
-    })
-    .catch((error_data) => {
-      console.log(error_data);
-    });
+async function fetchMovies(url, dom_element, path_type) {
+  try {
+    const response = await fetch(url);
+    if (!response) throw new Error(FETCH_MOVIE_ERROR_MESSAGE);
+
+    showMovies(await response.json(), dom_element, path_type);
+  } catch (error) {
+    displayError(error);
+  }
 }
 
 //  ** Function that displays the movies to the DOM **
 function showMovies(movies, dom_element, path_type) {
   // Create a variable that grabs id or class
-  var moviesEl = document.querySelector(dom_element);
+  const moviesEl = document.querySelector(dom_element);
 
   // Loop through object
-  for (var movie of movies.results) {
+  for (const movie of movies.results) {
     // Within loop create an img element
-    var imageElement = document.createElement("img");
+    const imageElement = document.createElement("img");
 
     // Set attribute
     imageElement.setAttribute("data-id", movie.id);
@@ -95,7 +92,7 @@ function showMovies(movies, dom_element, path_type) {
 
     // Add event listener to handleMovieSelection() onClick
     imageElement.addEventListener("click", (e) => {
-      handleMovieSelection(e);
+      handleMovieSelection(e); // Not defined
     });
     // Append the imageElement to the dom_element selected
     moviesEl.appendChild(imageElement);
@@ -113,16 +110,18 @@ async function loadAllMovieData() {
   }
 }
 
+function toggleClass() {
+  if (window.scrollY > 0) {
+    navBar.classList.add(BG_SCROLL_CLASS);
+  } else {
+    navBar.classList.remove(BG_SCROLL_CLASS);
+  }
+}
+
 // Call the main functions the page is loaded
 window.onload = async () => {
   await headerImage();
   await loadAllMovieData();
 };
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 0) {
-    navBar.classList.add(BG_SCROLL_CLASS);
-  } else {
-    navBar.classList.remove(BG_SCROLL_CLASS);
-  }
-});
+window.addEventListener("scroll", toggleClass);
