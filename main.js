@@ -17,7 +17,7 @@ const trendingUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${
 const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${IMDB_API_KEY}&language=en-US&page=1`;
 const comedyUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${IMDB_API_KEY}&with_genres=35`;
 
-const DB = [
+const movieDB = [
   {
     path: `poster_path`,
     element: ".original",
@@ -101,7 +101,7 @@ function showMovies(movies, dom_element, path_type) {
 
 async function loadAllMovieData() {
   try {
-    const payload = Object.values(DB).map(({ url, path, element }) =>
+    const payload = Object.values(movieDB).map(({ url, path, element }) =>
       fetchMovies(url, element, path)
     );
     await Promise.all(payload);
